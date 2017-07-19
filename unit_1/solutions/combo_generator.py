@@ -17,7 +17,6 @@ def yield_all_combos(items):
             elif bag == 2:
                 bag2.append(items[j])
 
-        print()
         yield bag1, bag2
 
 
