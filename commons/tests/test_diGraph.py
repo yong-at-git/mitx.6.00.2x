@@ -14,7 +14,7 @@ class TestDiGraph(TestCase):
         b = Node("b")
         graph.add_node(b)
 
-        graph.add_edge(Edge(a, b))
+        graph.add_edge(Edge(Node("a"), b))
 
         self.assertTrue(b in graph.get_children(a))
 

@@ -15,7 +15,7 @@ class Node(object):
         return self._name
 
     def __hash__(self) -> int:
-        return super().__hash__()
+        return hash(self._name)
 
     def __eq__(self, o: object) -> bool:
         return isinstance(o, Node) and self._name == o.get_name()

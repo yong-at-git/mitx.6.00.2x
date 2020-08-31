@@ -30,19 +30,22 @@ class DiGraph(object):
     def __str__(self) -> str:
         result = ""
         for node in self._nodes:
-            result += str(node) + '->'.join(self._edges[node]) if len(self._edges[node]) > 0 else None + "\n"
-
-
-def test_add_edge_without_node():
-    di_graph = DiGraph()
-    di_graph.add_edge(Edge(Node("a"), Node("b")))
-
-
-def test_add_duplicated_node():
-    di_graph = DiGraph()
-    di_graph.add_node(Node("a"))
-    di_graph.add_node(Node("a"))
+            children = '.'.join(list(map(str, self._edges[node]))) if len(self._edges[node]) > 0 else ""
+            result += str(node) + "->" + "[" + children + "]" + "\n"
+        return result
 
 
 if __name__ == "__main__":
-    test_add_duplicated_node()
+    graph = DiGraph()
+
+    for i in range(1, 7):
+        graph.add_node(Node(str(i)))
+
+    graph.add_edge(Edge(Node("1"), Node("2")))
+    graph.add_edge(Edge(Node("1"), Node("3")))
+    graph.add_edge(Edge(Node("2"), Node("4")))
+    graph.add_edge(Edge(Node("2"), Node("5")))
+    graph.add_edge(Edge(Node("3"), Node("6")))
+    graph.add_edge(Edge(Node("4"), Node("3")))
+
+    print(str(graph))
