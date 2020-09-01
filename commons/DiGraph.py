@@ -27,12 +27,24 @@ class DiGraph(object):
     def has_node(self, node):
         return node in self._nodes
 
+    def get_nodes(self):
+        return self._nodes
+
+    def get_edges(self):
+        return self._edges
+
     def __str__(self) -> str:
         result = ""
         for node in self._nodes:
             children = '.'.join(list(map(str, self._edges[node]))) if len(self._edges[node]) > 0 else ""
             result += str(node) + "->" + "[" + children + "]" + "\n"
         return result
+
+
+class Graph(DiGraph):
+    def add_edge(self, edge: Edge):
+        DiGraph.add_edge(self, edge)
+        DiGraph.add_edge(self, edge.get_reversed_copy())
 
 
 if __name__ == "__main__":

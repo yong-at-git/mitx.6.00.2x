@@ -4,7 +4,7 @@ from typing import Any
 
 class Node(object):
 
-    def __init__(self, name) -> None:
+    def __init__(self, name):
         self._name = name
         super().__init__()
 

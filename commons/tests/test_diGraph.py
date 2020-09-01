@@ -30,7 +30,7 @@ class TestDiGraph(TestCase):
         b = Node("b")
         graph.add_node(b)
 
-        self.assertTrue(graph.has_node(a))
+        self.assertTrue(graph.has_node(Node("a")))
         self.assertTrue(graph.has_node(b))
 
     def test_add_node_exp(self):

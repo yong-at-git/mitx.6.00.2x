@@ -15,6 +15,9 @@ class Edge(object):
     def get_dst(self):
         return self._dst
 
+    def get_reversed_copy(self):
+        return Edge(self._dst, self._src)
+
     def __str__(self) -> str:
         return '<' + str(self._src) + ',' + str(self._dst) + '>'
 
