@@ -15,8 +15,8 @@ class TestGraphAlgs(TestCase):
 
     def test_dfs(self):
         digraph = TestGraphAlgs.build_digraph()
-        shortest_path_via_dfs = dfs(digraph, Node("0"), Node("4"), [], None, False)
-        print(stringify_path(shortest_path_via_dfs))
+        shortest_path_via_dfs = dfs(digraph, Node("0"), Node("5"), [], None, False)
+        print("Shortest:", stringify_path(shortest_path_via_dfs))
 
     @classmethod
     def build_digraph(cls):

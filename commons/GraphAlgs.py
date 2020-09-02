@@ -4,7 +4,8 @@ from commons.Node import Node
 
 
 def dfs(graph: Graph, src_node: Node, dst_node: Node, current_path: [], current_shortest: [], print_current_path=False):
-    current_path += [src_node]
+    current_path = current_path + [src_node]
+    # += operator mutate the list; while a = a + b does not
 
     if print_current_path:
         print(stringify_path(current_path))
