@@ -3,7 +3,7 @@ from unittest import TestCase
 
 from commons.DiGraph import DiGraph
 from commons.Edge import Edge
-from commons.GraphAlgs import stringify_path, dfs
+from commons.GraphAlgs import stringify_path, dfs, bfs
 from commons.Node import Node
 
 
@@ -15,8 +15,13 @@ class TestGraphAlgs(TestCase):
 
     def test_dfs(self):
         digraph = TestGraphAlgs.build_digraph()
-        shortest_path_via_dfs = dfs(digraph, Node("0"), Node("5"), [], None, False)
-        print("Shortest:", stringify_path(shortest_path_via_dfs))
+        shortest_path_via_dfs = dfs(digraph, Node("0"), Node("5"), [], None, True)
+        print("Shortest via DFS:", stringify_path(shortest_path_via_dfs))
+
+    def test_bfs(self):
+        digraph = TestGraphAlgs.build_digraph()
+        shortest_path_via_bfs = bfs(digraph, Node("0"), Node("5"), True)
+        print("Shortest via BFS:", stringify_path(shortest_path_via_bfs))
 
     @classmethod
     def build_digraph(cls):

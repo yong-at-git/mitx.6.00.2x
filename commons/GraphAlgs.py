@@ -8,7 +8,7 @@ def dfs(graph: Graph, src_node: Node, dst_node: Node, current_path: [], current_
     # += operator mutate the list; while a = a + b does not
 
     if print_current_path:
-        print(stringify_path(current_path))
+        print("Current DFS path:", stringify_path(current_path))
 
     if src_node == dst_node:
         return current_path
@@ -22,7 +22,22 @@ def dfs(graph: Graph, src_node: Node, dst_node: Node, current_path: [], current_
     return current_shortest
 
 
-def bfs():
+def bfs(graph: Graph, src_node: Node, dst_node: Node, print_current_path=False):
+    init_path = [src_node]
+    path_queue = [init_path]
+
+    while len(path_queue) != 0:
+        head_path = path_queue.pop(0)
+        if print_current_path:
+            print("Current BFS path:", stringify_path(head_path))
+        last_node = head_path[-1]
+        if last_node == dst_node:
+            return head_path
+
+        for next_node in graph.get_children(last_node):
+            if next_node not in head_path:
+                new_path = head_path + [next_node]
+                path_queue.append(new_path)
     return None
 
 
