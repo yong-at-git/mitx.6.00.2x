@@ -43,6 +43,9 @@ def bfs(graph: Graph, src_node: Node, dst_node: Node, print_current_path=False):
 
 def stringify_path(path):
     result = ''
+    if path is None:
+        return result
+
     for i in range(len(path)):
         result += str(path[i])
         if i != len(path) - 1:

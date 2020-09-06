@@ -20,7 +20,7 @@ class TestGraphAlgs(TestCase):
 
     def test_bfs(self):
         digraph = TestGraphAlgs.build_digraph()
-        shortest_path_via_bfs = bfs(digraph, Node("0"), Node("5"), True)
+        shortest_path_via_bfs = bfs(digraph, Node("0"), Node("5"), False)
         print("Shortest via BFS:", stringify_path(shortest_path_via_bfs))
 
     @classmethod
