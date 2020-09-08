@@ -1,4 +1,5 @@
 #! /usr/bin/env python3
+import unittest
 from unittest import TestCase
 
 from commons.DiGraph import DiGraph
@@ -8,6 +9,7 @@ from commons.Node import Node
 
 
 class TestGraphAlgs(TestCase):
+    @unittest.skip
     def test_print_path(self):
         path = [Node("a"), Node("b"), Node("c"), Node("d")]
         printed = stringify_path(path)
@@ -16,12 +18,12 @@ class TestGraphAlgs(TestCase):
     def test_dfs(self):
         digraph = TestGraphAlgs.build_digraph()
         shortest_path_via_dfs = dfs(digraph, Node("0"), Node("5"), [], None, True)
-        print("Shortest via DFS:", stringify_path(shortest_path_via_dfs))
+        self.assertEqual("0->2->3->5", stringify_path(shortest_path_via_dfs))
 
     def test_bfs(self):
         digraph = TestGraphAlgs.build_digraph()
         shortest_path_via_bfs = bfs(digraph, Node("0"), Node("5"), False)
-        print("Shortest via BFS:", stringify_path(shortest_path_via_bfs))
+        self.assertEqual("0->2->3->5", stringify_path(shortest_path_via_bfs))
 
     @classmethod
     def build_digraph(cls):
